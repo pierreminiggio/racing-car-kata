@@ -9,12 +9,12 @@ class Alarm
     public const LOW_PRESSURE_THRESHOLD = 17;
     public const HIGH_PRESSURE_THRESHOLD = 21;
 
-    protected $sensor;
+    protected Sensor $sensor;
     protected $isAlarmOn = false;
 
-    public function __construct()
+    public function __construct(?Sensor $sensor = null)
     {
-        $this->sensor = new Sensor();
+        $this->sensor = $sensor ?? new Sensor();
     }
 
     public function check(): void
